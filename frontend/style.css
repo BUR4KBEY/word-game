@@ -1,0 +1,29 @@
+:root {
+	--bg-color: #131c21;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--bg-color);
+	color: white;
+	width: 100vw;
+	height: 100vh;
+}
+
+/* Sweatalert fix */
+.swal2-shown.swal2-height-auto {
+	height: 100vh !important;
+}
+
+p {
+	word-break: break-word;
+	white-space: normal;
+}
+
+.max-height {
+	max-height: 746.95px;
+}

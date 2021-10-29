@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Game</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Loading Container -->
+    <div id="loadingContainer" class="w-full h-full flex justify-center items-center">
+        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-purple-400"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="mainContainer" class="w-full h-full flex justify-center items-center" style="display: none;">
+        <div class="w-10/12 h-5/6 flex flex-col gap-4">
+
+            <!-- Room Key, Exit... -->
+            <div class="w-full h-12 bg-gray-200 border rounded flex justify-between  items-center px-4">
+                <div class="flex items-center gap-2">
+                    <label class="text-purple-600 font-bold text-sm md:text-lg">Room Key:</label>
+                    <label class="text-purple-400 text-sm md:text-lg" id="lblRoomKey"></label>
+                    <i class="fas fa-copy text-purple-800 text-xs md:text-sm cursor-pointer" id="copyRoomKey"></i>
+                </div>
+                <div class="flex items-center gap-2 md:text-xl">
+                    <i class="fas fa-lock text-yellow-500 cursor-pointer" id="lockStatus"></i>
+                    <i class="fas fa-sign-out-alt text-red-400 cursor-pointer" id="exitRoom"></i>
+                </div>
+            </div>
+
+            <!-- Main Area -->
+            <div class="h-full grid grid-cols-1 md:grid-cols-3 gap-4">
+
+                <!-- Chat -->
+                <div class="flex flex-col max-height bg-gray-200 rounded">
+                    <div
+                        class="flex flex-none justify-center items-center h-12 gap-4 text-xl text-blue-500 border-b border-gray-400">
+                        <label>Chat</label>
+                        <i class="fas fa-comment-dots text-blue-400"></i>
+                    </div>
+                    <div class="flex-grow overflow-y-auto px-2 pb-3" id="chatMessageList"></div>
+                    <div class="flex flex-none items-center gap-2 border-t border-gray-400 px-2 py-2">
+                        <input
+                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                            id="chatMessageInput" type="text" placeholder="Type something to send...">
+                        <button
+                            class="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                            type="button" id="chatMessageSend">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Game -->
+                <div class="flex flex-col max-height bg-gray-200 rounded">
+                    <div
+                        class="flex flex-none justify-center items-center h-12 gap-4 text-xl text-blue-500 border-b border-gray-400">
+                        <label>Game</label>
+                        <i class="fas fa-gamepad text-blue-400"></i>
+                    </div>
+                    <div class="flex-grow overflow-y-auto px-2 pb-3" id="gameMessageList"></div>
+                    <div class="flex flex-none items-center gap-2 border-t border-gray-400 px-2 py-2">
+                        <input
+                            class="bg-gray-300 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                            id="gameMessageInput" type="text" placeholder="Type a word starts with ">
+                        <button
+                            class="shadow bg-green-500 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                            type="button" id="gameMessageSend">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Players -->
+                <div class="flex flex-col max-height bg-gray-200 rounded">
+                    <div
+                        class="flex flex-none justify-center items-center h-12 gap-4 text-xl text-blue-500 border-b border-gray-400">
+                        <label>Players</label>
+                        <i class="fas fa-users text-blue-400"></i>
+                    </div>
+                    <div class="flex-grow overflow-y-auto px-2 pt-2 pb-1" id="players"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+        integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
+        crossorigin='anonymous'></script>
+    <script src='http://localhost:3000/socket.io/socket.io.js'></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/e340b6265b.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/common-tags"></script>
+    <script src='js/room.js' type='module'></script>
+</body>
+
+</html>

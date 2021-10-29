@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Game</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="w-full h-full flex items-center justify-center">
+        <div class="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
+            <h1 class="font-bold text-center text-3xl mb-5 text-indigo-400">Word Game</h1>
+            <div class="bg-white shadow w-full rounded-lg divide-y divide-gray-200">
+                <div class="px-5 py-7">
+                    <label class="font-semibold text-sm text-gray-600 pb-1 block">Your Name</label>
+                    <input id="playerName" type="text" maxlength="16"
+                        class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full text-black" />
+                    <label class="font-semibold text-sm text-gray-600 pb-1 block">Room Key</label>
+                    <input id="roomKey" type="text" maxlength="20"
+                        class="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full text-black" />
+                    <button id="joinButton" type="button"
+                        class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+                        <span class="inline-block mr-2">Join</span>
+                    </button>
+                </div>
+                <div class="p-5">
+                    <button id="createRoomButton" type="button"
+                        class="transition duration-200 border border-gray-200 text-gray-500 w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-normal text-center inline-block">Create
+                        your room</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'
+        integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=='
+        crossorigin='anonymous'></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"
+        integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src='js/index.js' type='module'></script>
+</body>
+
+</html>
